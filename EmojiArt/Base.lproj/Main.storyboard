@@ -12,23 +12,24 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="EmojiArtViewController" customModule="EmojiArt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="791.5" height="834"/>
+                        <rect key="frame" x="0.0" y="0.0" width="791" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="03b-5n-hY6">
                                 <rect key="frame" x="0.0" y="0.0" width="791.5" height="834"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hrW-Bd-o31" customClass="EmojiArtView" customModule="EmojiArt" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="791.5" height="834"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                    </view>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lnx-iS-Jd4">
+                                        <rect key="frame" x="0.0" y="0.0" width="792" height="834"/>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="Ddv-yG-9Yh"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="xyn-3F-4lg"/>
+                                    </scrollView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="hrW-Bd-o31" firstAttribute="top" secondItem="03b-5n-hY6" secondAttribute="top" id="NPq-LI-WpO"/>
-                                    <constraint firstAttribute="trailing" secondItem="hrW-Bd-o31" secondAttribute="trailing" id="Y4c-ro-oTh"/>
-                                    <constraint firstAttribute="bottom" secondItem="hrW-Bd-o31" secondAttribute="bottom" id="kBJ-Zh-f9S"/>
-                                    <constraint firstItem="hrW-Bd-o31" firstAttribute="leading" secondItem="03b-5n-hY6" secondAttribute="leading" id="pcI-yP-6WM"/>
+                                    <constraint firstAttribute="bottom" secondItem="lnx-iS-Jd4" secondAttribute="bottom" id="Mfk-VW-X6E"/>
+                                    <constraint firstItem="lnx-iS-Jd4" firstAttribute="top" secondItem="03b-5n-hY6" secondAttribute="top" id="RlB-ak-uOf"/>
+                                    <constraint firstAttribute="trailing" secondItem="lnx-iS-Jd4" secondAttribute="trailing" id="YhY-9s-GOu"/>
+                                    <constraint firstItem="lnx-iS-Jd4" firstAttribute="leading" secondItem="03b-5n-hY6" secondAttribute="leading" id="ykc-Z4-JfE"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -43,12 +44,12 @@
                     </view>
                     <connections>
                         <outlet property="dropZone" destination="03b-5n-hY6" id="JLc-Ls-Mwa"/>
-                        <outlet property="emojiArtView" destination="hrW-Bd-o31" id="OGe-1D-T4m"/>
+                        <outlet property="scrollView" destination="lnx-iS-Jd4" id="Uy3-Ha-oeE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="139"/>
+            <point key="canvasLocation" x="138.66906474820144" y="138.84892086330936"/>
         </scene>
         <!--Emoji Art Document Table View Controller-->
         <scene sceneID="5B8-jy-m8T">
