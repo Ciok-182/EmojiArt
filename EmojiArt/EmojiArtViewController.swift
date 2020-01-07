@@ -58,6 +58,7 @@ class EmojiArtViewController: UIViewController {
         didSet{
             emojiCollectionView.dataSource = self
             emojiCollectionView.delegate = self
+            emojiCollectionView.dragDelegate = self
         }
     }
     
@@ -133,6 +134,30 @@ extension EmojiArtViewController: UICollectionViewDelegate, UICollectionViewData
             emojiCell.label.attributedText = text
         }
         return cell
+    }
+    
+}
+
+extension EmojiArtViewController: UICollectionViewDragDelegate{
+    
+    private func dragItems(at indexPath: IndexPath) -> [UIDragItem] {
+        if let attributedString = (emojiCollectionView.cellForItem(at: indexPath) as? EmojiCollectionViewCell)?.label.attributedText{
+            let dragItem = UIDragItem(itemProvider: NSItemProvider(object: attributedString))
+            dragItem.localObject = attributedString
+            return [dragItem]
+        } else{
+            return []
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        return dragItems(at: indexPath)
+    }
+    
+    //agregar multiples
+    
+    func collectionView(_ collectionView: UICollectionView, itemsForAddingTo session: UIDragSession, at indexPath: IndexPath, point: CGPoint) -> [UIDragItem] {
+        return dragItems(at: indexPath)
     }
     
 }
