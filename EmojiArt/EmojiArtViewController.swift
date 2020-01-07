@@ -178,6 +178,35 @@ extension EmojiArtViewController: UICollectionViewDropDelegate{
     
     func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
         
+        
+        let destinationIndexPath = coordinator.destinationIndexPath ?? IndexPath(item: 0, section: 0) //drop in our own collectionView
+        for item in coordinator.items{
+            if let sourceIndexPath = item.sourceIndexPath{ // si traemos idexPath es pq es nuestro collectionView
+                if let attributedString = item.dragItem.localObject as? NSAttributedString{
+                    collectionView.performBatchUpdates({
+                        emojis.remove(at: sourceIndexPath.item)
+                        emojis.insert(attributedString.string, at: destinationIndexPath.item)
+                        collectionView.deleteItems(at: [sourceIndexPath])
+                        collectionView.insertItems(at: [destinationIndexPath])
+                    })
+                    coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
+                }
+            } else { //source doesn't have an index, so it's coming from outside our collectionView
+                let placeholderContext = coordinator.drop(item.dragItem, to: UICollectionViewDropPlaceholder(insertionIndexPath: destinationIndexPath, reuseIdentifier: "DropPlaceholderCell"))
+                item.dragItem.itemProvider.loadObject(ofClass: NSAttributedString.self) { provider, error in
+                    DispatchQueue.main.async {
+                        if let attributedString = provider as? NSAttributedString{
+                            placeholderContext.commitInsertion(dataSourceUpdates: { insertionIndexPath in
+                                self.emojis.insert(attributedString.string, at: insertionIndexPath.item)
+                            })
+                        } else {
+                            placeholderContext.deletePlaceholder()
+                        }
+                        
+                    }
+                }
+            }
+        }
     }
     
 }
