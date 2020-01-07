@@ -36,16 +36,18 @@ extension EmojiArtViewController: UIDropInteractionDelegate{
     
     //Solo si el objeto que estas arrojando es del tipo de clases NSURL y UIIMage continuara con sessionDidUpdate
     func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {
-        
+        print("dropInteraction canHandle")
         return session.canLoadObjects(ofClass: NSURL.self) && session.canLoadObjects(ofClass: UIImage.self)
     }
     
     //Todo lo q se deje en la zona se va copiar ya que puede recibir de otras apps
     func dropInteraction(_ interaction: UIDropInteraction, sessionDidUpdate session: UIDropSession) -> UIDropProposal {
+        print("dropInteraction canHandle")
         return UIDropProposal(operation: .copy)
     }
     
     func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
+        print("dropInteraction performDrop")
         self.imageFetcher = ImageFetcher() { (url, image) in
             DispatchQueue.main.async {
                 self.emojiArtView.backgroundImage = image
