@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EmojiArtViewController: UIViewController, UIScrollViewDelegate {
+class EmojiArtViewController: UIViewController {
     
     var imageFetcher: ImageFetcher!
     
@@ -28,6 +28,9 @@ class EmojiArtViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    @IBOutlet weak var scrollViewWidth: NSLayoutConstraint!
+    @IBOutlet weak var scrollViewHeight: NSLayoutConstraint!
+    
     func viewForZooming(in scrollView: UIScrollView) -> UIView?{
         return emojiArtView
     }
@@ -42,6 +45,8 @@ class EmojiArtViewController: UIViewController, UIScrollViewDelegate {
             let size = newValue?.size ?? CGSize.zero
             emojiArtView.frame = CGRect(origin: CGPoint.zero, size: size)
             scrollView?.contentSize = size
+            scrollViewHeight?.constant = size.height
+            scrollViewWidth?.constant = size.width
             if let dropZone = self.dropZone, size.width > 0, size.height > 0{
                 scrollView?.zoomScale = max(dropZone.bounds.size.width / size.width, dropZone.bounds.size.height / size.height)
             }
@@ -58,8 +63,6 @@ class EmojiArtViewController: UIViewController, UIScrollViewDelegate {
 }
 
 extension EmojiArtViewController: UIDropInteractionDelegate{
-    
-    
     
     //Solo si el objeto que estas arrojando es del tipo de clases NSURL y UIIMage continuara con sessionDidUpdate
     func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {
@@ -92,6 +95,15 @@ extension EmojiArtViewController: UIDropInteractionDelegate{
                 self.imageFetcher.backup = image
             }
         })
+    }
+    
+}
+
+extension EmojiArtViewController: UIScrollViewDelegate{
+    
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        scrollViewWidth.constant = scrollView.contentSize.width
+        scrollViewHeight.constant = scrollView.contentSize.height
     }
     
 }
