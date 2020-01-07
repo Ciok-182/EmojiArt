@@ -11,6 +11,7 @@ import UIKit
 class EmojiArtViewController: UIViewController {
     
     var imageFetcher: ImageFetcher!
+    var emojis = "🐼🌾🍄🌲🌴🥀🌧☁️🌩🦃🐇🐆🦜🦥🕊🦅🦆🐝🦒🦌🐿".map { String($0) }
     
     @IBOutlet weak var dropZone: UIView!{
         didSet{
@@ -51,6 +52,17 @@ class EmojiArtViewController: UIViewController {
                 scrollView?.zoomScale = max(dropZone.bounds.size.width / size.width, dropZone.bounds.size.height / size.height)
             }
         }
+    }
+    
+    @IBOutlet weak var emojiCollectionView: UICollectionView!{
+        didSet{
+            emojiCollectionView.dataSource = self
+            emojiCollectionView.delegate = self
+        }
+    }
+    
+    private var font: UIFont{
+        return UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont.preferredFont(forTextStyle: .body).withSize(60))
     }
     
     override func viewDidLoad() {
@@ -104,6 +116,23 @@ extension EmojiArtViewController: UIScrollViewDelegate{
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         scrollViewWidth.constant = scrollView.contentSize.width
         scrollViewHeight.constant = scrollView.contentSize.height
+    }
+    
+}
+
+extension EmojiArtViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return emojis.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmojiCell", for: indexPath)
+        if let emojiCell = cell as? EmojiCollectionViewCell{
+            let text = NSAttributedString(string: emojis[indexPath.item], attributes: [.font : font])
+            emojiCell.label.attributedText = text
+        }
+        return cell
     }
     
 }
