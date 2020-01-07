@@ -12,18 +12,18 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="EmojiArtViewController" customModule="EmojiArt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="712" height="794"/>
+                        <rect key="frame" x="0.0" y="0.0" width="791.5" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="03b-5n-hY6">
-                                <rect key="frame" x="0.0" y="0.0" width="712" height="794"/>
+                                <rect key="frame" x="0.0" y="0.0" width="791.5" height="834"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hrW-Bd-o31" customClass="EmojiArtView" customModule="EmojiArt" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="712" height="794"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="791.5" height="834"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="hrW-Bd-o31" firstAttribute="top" secondItem="03b-5n-hY6" secondAttribute="top" id="NPq-LI-WpO"/>
                                     <constraint firstAttribute="trailing" secondItem="hrW-Bd-o31" secondAttribute="trailing" id="Y4c-ro-oTh"/>
@@ -99,8 +99,8 @@
             <objects>
                 <splitViewController id="vDf-X9-z7e" sceneMemberID="viewController">
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="showDetail" id="680-2H-uWC"/>
                         <segue destination="EEs-cZ-JlY" kind="relationship" relationship="masterViewController" id="Fxa-Ot-yNn"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="detailViewController" id="Fjp-xn-SZD"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oOQ-fn-nyU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
