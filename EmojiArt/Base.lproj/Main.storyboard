@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="EmojiArtViewController" customModule="EmojiArt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="791" height="834"/>
+                        <rect key="frame" x="0.0" y="0.0" width="791.5" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="03b-5n-hY6">
@@ -92,6 +92,52 @@
                                                 <constraint firstItem="BwT-xu-Cca" firstAttribute="centerY" secondItem="IkF-uJ-gme" secondAttribute="centerY" id="R41-aI-VQB"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="AddEmojiButtonCell" id="3i0-Wk-cFu">
+                                        <rect key="frame" x="180" y="0.0" width="86" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NBu-vX-NE0">
+                                            <rect key="frame" x="0.0" y="0.0" width="86" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dr-fu-XNL">
+                                                    <rect key="frame" x="23" y="-5" width="40" height="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="65"/>
+                                                    <state key="normal" title="+"/>
+                                                    <connections>
+                                                        <action selector="addEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sgM-YX-r4F"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4dr-fu-XNL" firstAttribute="centerX" secondItem="NBu-vX-NE0" secondAttribute="centerX" id="ibZ-Ae-OmS"/>
+                                                <constraint firstItem="4dr-fu-XNL" firstAttribute="centerY" secondItem="NBu-vX-NE0" secondAttribute="centerY" id="zed-1E-Qvd"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="EmojiImputCell" id="CFq-2f-ppv" customClass="TextFieldCollectionViewCell" customModule="EmojiArt" customModuleProvider="target">
+                                        <rect key="frame" x="276" y="0.0" width="86" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9qv-gS-bMv">
+                                            <rect key="frame" x="0.0" y="0.0" width="86" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="    " textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="60" translatesAutoresizingMaskIntoConstraints="NO" id="VAx-SG-qY1">
+                                                    <rect key="frame" x="2" y="-3" width="82" height="86"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="65"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.21176470589999999" green="0.25098039220000001" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="VAx-SG-qY1" firstAttribute="leading" secondItem="9qv-gS-bMv" secondAttribute="leading" constant="2" id="TD2-6o-Heh"/>
+                                                <constraint firstItem="VAx-SG-qY1" firstAttribute="centerY" secondItem="9qv-gS-bMv" secondAttribute="centerY" id="kTO-D0-0OB"/>
+                                                <constraint firstAttribute="trailing" secondItem="VAx-SG-qY1" secondAttribute="trailing" constant="2" id="n96-ag-ASf"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="textField" destination="VAx-SG-qY1" id="ukC-sW-sdM"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
