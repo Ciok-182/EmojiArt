@@ -54,7 +54,6 @@
 		3ECF1D1123A80F63002C8A8C = {
 			isa = PBXGroup;
 			children = (
-				3ED2183523D1160800E9D48A /* EmojiArt.swift */,
 				3ECF1D1C23A80F63002C8A8C /* EmojiArt */,
 				3ECF1D1B23A80F63002C8A8C /* Products */,
 			);
@@ -72,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				3ECF1D2323A80F63002C8A8C /* Main.storyboard */,
+				3ED2183523D1160800E9D48A /* EmojiArt.swift */,
 				3EE2D3A423C3FCC200FCA33C /* EmojiArtDocumentTableViewController.swift */,
 				3E4FAAF123C65A6000385690 /* TextFieldCollectionViewCell.swift */,
 				3ECF1D3223A80FF1002C8A8C /* EmojiArtViewController.swift */,
